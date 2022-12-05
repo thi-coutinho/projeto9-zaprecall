@@ -1,12 +1,11 @@
-import logo from "./assets/img/logo.png"
-
+import GlobalStyle from "./assets/css/reset"
+import Main from "./assets/components/Main";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <>
+    <GlobalStyle/>
+    <Main/>
+    </>
   );
 }
 
