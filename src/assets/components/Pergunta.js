@@ -3,8 +3,8 @@ import styled from "styled-components"
 export default function Pergunta(props) {
 
     return (
-        <>{props.closedCard ? <ClosedQuestion>{props.children}</ClosedQuestion> :
-            <OpenQuestion>{props.children}</OpenQuestion>}  </>
+        <>{props.closedCard ? <ClosedQuestion data-test="flashcard">{props.children}</ClosedQuestion> :
+            <OpenQuestion data-test="flashcard">{props.children}</OpenQuestion>}  </>
     )
 }
 

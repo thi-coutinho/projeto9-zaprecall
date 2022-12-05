@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function Footer(props) {
     return (
-        <FooterDiv>{`${props.totalRespondidos}/${props.totalCards} CONCLUÍDOS `}</FooterDiv>
+        <FooterDiv data-test="footer">{`${props.totalRespondidos}/${props.totalCards} CONCLUÍDOS `}</FooterDiv>
         )
 }
 

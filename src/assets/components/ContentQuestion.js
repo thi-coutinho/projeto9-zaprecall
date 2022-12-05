@@ -9,28 +9,34 @@ export default function ContentQuestion({ i, closed, answer, card, toggleCloseCa
     const YELLOW = "#FF922E"
     const RED = "#FF3030"
     const refObjAnswers = {
-        "forgot": { color: RED, src: forgot },
-        "almost": { color: YELLOW, src: almost },
-        "zap": { color: GREEN, src: zap },
+        "forgot": { color: RED, src: forgot, dataTest: "no-icon" },
+        "almost": { color: YELLOW, src: almost, dataTest: "partial-icon" },
+        "zap": { color: GREEN, src: zap, dataTest: "zap-icon" },
     }
 
     if (closed) {
         if (answer === "unanswered") {
-            return <><p>{`Pergunta ${i}`} </p> <img onClick={() => toggleCloseCard(i)} src={play} alt="" /></>
-        } else {
-            return <><AnsweredQuestion color={refObjAnswers[answer].color}>{`Pergunta ${i}`} </AnsweredQuestion> <img src={refObjAnswers[answer].src} alt="" /></>
-        }
-    } else {
-        if (answer === "unanswered") {
-            return <><p>{card.question}</p> <img onClick={() => turnCard(i, "answered")} src={turn} alt="" /></>
+            return <><p data-test="flashcard-text">{`Pergunta ${i}`} </p> <img data-test="play-btn" onClick={() => toggleCloseCard(i)} src={play} alt="" /></>
         } else {
             return (
                 <>
-                    <p>{card.answer}</p>
+                    <AnsweredQuestion   color={refObjAnswers[answer].color}
+                                        data-test="flashcard-text">{`Pergunta ${i}`}
+                    </AnsweredQuestion>
+                    <img data-test={refObjAnswers[answer].dataTest} src={refObjAnswers[answer].src} alt="" /></>
+            )
+        }
+    } else {
+        if (answer === "unanswered") {
+            return <><p data-test="flashcard-text">{card.question}</p> <img data-test="turn-btn" onClick={() => turnCard(i, "answered")} src={turn} alt="" /></>
+        } else {
+            return (
+                <>
+                    <p data-test="flashcard-text">{card.answer}</p>
                     <ButtonConteiner>
-                        <InnerButton onClick={() => classifyCard(i, "forgot")} color={RED}>Não Lembrei</InnerButton>
-                        <InnerButton onClick={() => classifyCard(i, "almost")} color={YELLOW}>Quase não lembrei</InnerButton>
-                        <InnerButton onClick={() => classifyCard(i, "zap")} color={GREEN}>Zap!</InnerButton>
+                        <InnerButton data-test="no-btn" onClick={() => classifyCard(i, "forgot")} color={RED}>Não Lembrei</InnerButton>
+                        <InnerButton data-test="partial-btn" onClick={() => classifyCard(i, "almost")} color={YELLOW}>Quase não lembrei</InnerButton>
+                        <InnerButton data-test="zap-btn" onClick={() => classifyCard(i, "zap")} color={GREEN}>Zap!</InnerButton>
                     </ButtonConteiner>
                 </>
             )
