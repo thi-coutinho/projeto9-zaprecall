@@ -23,7 +23,7 @@ export default function Main() {
             />
             <Footer answerCard = {answerCard}
                     totalCards={cards.length}
-                    totalRespondidos={answerCard.filter((c)=>c!="unanswered" && c!="answered").length}
+                    totalRespondidos={answerCard.filter((c)=>c!=="unanswered" && c!=="answered").length}
             />
         </Screen>
     )
