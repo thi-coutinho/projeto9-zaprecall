@@ -16,12 +16,12 @@ export default function ContentQuestion({ i, closed, answer, card, toggleCloseCa
 
     if (closed) {
         if (answer === "unanswered") {
-            return <><p data-test="flashcard-text">{`Pergunta ${i}`} </p> <img data-test="play-btn" onClick={() => toggleCloseCard(i)} src={play} alt="" /></>
+            return <><p data-test="flashcard-text">{`Pergunta ${i+1}`} </p> <img data-test="play-btn" onClick={() => toggleCloseCard(i)} src={play} alt="" /></>
         } else {
             return (
                 <>
-                    <AnsweredQuestion   color={refObjAnswers[answer].color}
-                                        data-test="flashcard-text">{`Pergunta ${i}`}
+                    <AnsweredQuestion color={refObjAnswers[answer].color}
+                        data-test="flashcard-text">{`Pergunta ${i+1}`}
                     </AnsweredQuestion>
                     <img data-test={refObjAnswers[answer].dataTest} src={refObjAnswers[answer].src} alt="" /></>
             )
